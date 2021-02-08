@@ -1,4 +1,5 @@
 provider "aws" {
-  region = var.AWS_REGION
+  region = "us-east-1"
   alias = "virginia"
+  profile = "default"
 }

@@ -9,7 +9,7 @@ resource "aws_s3_bucket" "s3_bucket" {
     "Effect":"Allow",
     "Principal": "*",
     "Action":["s3:GetObject"],
-    "Resource":["arn:aws:s3:::var.APP_NAME/*"]
+    "Resource":["arn:aws:s3:::${var.APP_NAME}/*"]
   }]
 }
 POLICY
@@ -23,6 +23,9 @@ resource "aws_s3_bucket" "terraform_state" {
   bucket = "moonlace-terraform-state"
   versioning {
     enabled = true
+  }
+  lifecycle {
+    prevent_destroy = true
   }
   server_side_encryption_configuration {
     rule {
