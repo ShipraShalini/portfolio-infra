@@ -34,8 +34,6 @@ resource "aws_cloudfront_distribution" "web_cloudfront_distribution" {
     response_page_path = "/index.html"
   }
 
-  aliases = [var.APP_DOMAIN]
-
   restrictions {
     geo_restriction {
       restriction_type = "none"
