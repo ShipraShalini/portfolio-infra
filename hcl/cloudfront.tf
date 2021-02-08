@@ -18,7 +18,7 @@ resource "aws_cloudfront_distribution" "web_cloudfront_distribution" {
     }
   }
 
-  aliases = [var.APP_DOMAIN, "www.${varq.APP_DOMAIN}"]
+  aliases = [var.APP_DOMAIN, "www.${var.APP_DOMAIN}"]
 
   origin {
     domain_name = aws_s3_bucket.s3_bucket.website_endpoint
