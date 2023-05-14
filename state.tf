@@ -1,3 +1,12 @@
+resource "aws_s3_bucket" "terraform_state" {
+  bucket = "moonlace-terraform-state"
+
+  lifecycle {
+    prevent_destroy = true
+  }
+}
+
+
 terraform {
   backend "s3" {
     bucket         = "moonlace-terraform-state"
